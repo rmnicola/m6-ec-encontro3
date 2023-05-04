@@ -9,15 +9,15 @@
 
 ## Implementando um subscriber em ROS
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/nBv1Q_bdbTw/0.jpg)](https://www.youtube.com/watch?v=nBv1Q_bdbTw)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/7CkcfUkLMWQ/0.jpg)](https://www.youtube.com/watch?v=7CkcfUkLMWQ)
 
 ## Implementando um controlador simples em ROS
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/nBv1Q_bdbTw/0.jpg)](https://www.youtube.com/watch?v=nBv1Q_bdbTw)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/pDDB2E7CWUI/0.jpg)](https://www.youtube.com/watch?v=pDDB2E7CWUI)
 
 ## Implementando uma fila de ações em ROS
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/1oFL12wy9Yw/0.jpg)](https://www.youtube.com/watch?v=1oFL12wy9Yw)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/c9F0yM7PLKs.jpg)](https://www.youtube.com/watch?v=c9F0yM7PLKs)
 
 ## Instalação do ambiente de simulação do turtlebot
 
