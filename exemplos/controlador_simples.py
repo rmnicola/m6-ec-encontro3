@@ -20,17 +20,29 @@ class Pose(TPose):
         
     def __repr__(self):
         """Modifica a forma como aparece a classe no `print`"""
-        return f"(x={self.x}, theta={self.theta})"
+        return f"(x={self.x:.2f}, theta={self.y:.2f})"
+    
+    def __add__(self, other):
+        """Overload do operador `+`"""
+        self.x += other.x
+        self.y += other.y
+        return self
+    
+    def __sub__(self, other):
+        """Overload do operador `-`"""
+        self.x -= other.x
+        self.y -= other.y
+        return self
     
     def __eq__(self, other):
         """
         Modifica a funcionalidade do operador `==`
         Passa a considerar como iguais duas poses que 
         estiverem dentro de um range delimitado por `MAX_DIFF`.
-        A comparação considera x e theta ao mesmo tempo.
+        A comparação considera x, y ao mesmo tempo.
         """
         return abs(self.x - other.x) < MAX_DIFF \
-        and abs(self.theta - other.theta) < MAX_DIFF
+        and abs(self.y - other.y) < MAX_DIFF \
 
 
 class TurtleController(Node):
@@ -38,7 +50,7 @@ class TurtleController(Node):
     Classe do controlador. É um nó de ROS
     """
     
-    def __init__(self, control_period=0.02):
+    def __init__(self, setpoint_rel, control_period=0.02):
         """
         Construtor da classe controladora.
         Aqui cria-se o publisher, a subscription e o timer.
@@ -49,6 +61,8 @@ class TurtleController(Node):
         # Iniciei ambos em x=-40.0 pois é um valor impossível no turtlesim
         self.pose = Pose(x=-40.0)
         self.setpoint = Pose(x=-40.0)
+        # O setpoint relativo é quanto a tartaruga vai andar a partir da sua origem
+        self.setpoint_rel = setpoint_rel
         self.publisher = self.create_publisher(
             msg_type=Twist,
             topic="/turtle1/cmd_vel",
@@ -78,28 +92,37 @@ class TurtleController(Node):
             self.get_logger().info("Aguardando primeira pose...")
             return
         msg = Twist()
-        theta_diff = self.setpoint.theta - self.pose.theta
         x_diff = self.setpoint.x - self.pose.x
+        y_diff = self.setpoint.y - self.pose.y
         if self.pose == self.setpoint:
+            msg.linear.x, msg.linear.y = 0.0, 0.0
             self.get_logger().info(f"Mbappé chegou em {self.setpoint}")
-            msg.linear.x = 0.0
-            msg.angular.z = 0.0
-        if abs(theta_diff) > MAX_DIFF:
-            msg.angular.z = 0.5 if theta_diff > 0 else -0.5
-            msg.linear.x = 0.0
-        elif abs(x_diff) > MAX_DIFF:
+            exit()
+        if abs(y_diff) > MAX_DIFF:
+            msg.linear.y = 0.5 if y_diff > 0 else -0.5
+        else:
+            msg.linear.y = 0.0
+        if abs(x_diff) > MAX_DIFF:
             msg.linear.x = 0.5 if x_diff > 0 else -0.5
+        else:
+            msg.linear.x = 0.0
         self.publisher.publish(msg)
         
     def pose_callback(self, msg):
-        if self.pose.x == -40.0:
-            self.setpoint.x = msg.x + 5.0
-        self.pose = msg
+        """
+        Método de callback da subscrição à pose da tartaruga.
+        Toda vez que chega uma mensagem no tópico de pose,
+        esse método é executado.
+        """
+        self.pose = Pose(x=msg.x, y=msg.y, theta=msg.theta)
+        # Se for a primeira vez passando por aqui, cria o setpoint.
+        if self.setpoint.x == -40.0:
+            self.setpoint = self.pose + self.setpoint_rel
 
 
 def main(args=None):
     rclpy.init(args=args)
-    tc = TurtleController()
+    tc = TurtleController(Pose(x=1.0, y=0.0))
     rclpy.spin(tc)
     tc.destroy_node()
     rclpy.shutdown()
