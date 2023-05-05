@@ -21,8 +21,6 @@
 
 ## Instalação do ambiente de simulação do turtlebot
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/68DhAuEBVP8/0.jpg)](https://www.youtube.com/watch?v=68DhAuEBVP8)
-
 Antes de começarmos, verifique se você possui o ROS 2 instalado em seu sistema e se já configurou o seu ambiente de trabalho do ROS 2. Se não tiver feito isso, você pode seguir o guia de instalação e configuração do ROS 2 em https://docs.ros.org/en/humble/Installation.html.
 
 A seguir, instale todos os pacotes relacionados ao turtlebot 3 utilizando o seguinte comando:
