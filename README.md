@@ -26,25 +26,25 @@ Antes de começarmos, verifique se você possui o ROS 2 instalado em seu sistema
 
 A seguir, instale todos os pacotes relacionados ao turtlebot 3 utilizando o seguinte comando:
 
-```console
+```bash
 sudo apt install ros-humble-turtlebot3*
 ```
 
 Antes de iniciar a simulação, precisamos definir o modelo do robô a ser utilizado pelo gazebo. Para isso, utilizaremos uma variável de ambiente. Rode o comando abaixo:
 
-```console
+```bash
 echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 ```
 
 Após rodar esse comando, é necessário dar source novamente na configuração do bash. Rode:
 
-```console
+```bash
 source ~/.bashrc
 ```
 
 Pronto. Agora está tudo certo para rodar a simulação do turtlesim utilizando o gazebo. É possível iniciar o gazebo e depois manualmente carregar o modelo do turtlebot, mas já existe um lançador que faz isso automaticamente. Rode:
 
-```console
+```bash
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
 
@@ -52,7 +52,7 @@ Note que o argumento `empty_world.launch.py` define qual cenário será aberto n
 
 Para mover o robô simulado basta interagir com os mesmo tópicos que existiriam no robô físico. Em específico, podemos utilizar o pacote `turtlebot3_teleop` para enviar mensagens para o tópico `cmd_vel`. Para lançar o teleop, rode:
 
-```console
+```bash
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
 
