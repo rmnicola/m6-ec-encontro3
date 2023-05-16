@@ -1,24 +1,32 @@
-# Implementação de Filas em ROS <!-- omit in toc -->
+[Voltar para o repositório principal :house:](https://github.com/rmnicola/m6-ec-encontros.git)
+
+# Manipulando o Turtlesim <!-- omit in toc -->
+
+## Objetivos do encontro
+* Aplicar os conceitos de estruturas de dados na prática.
+* Aprofundar o conhecimento dos nós e pacotes em ROS
+* Instalar o ambiente de simulação Gazebo
 
 ## Conteúdo <!-- omit in toc -->
 
--   [Implementando um subscriber em ROS](#implementando-um-subscriber-em-ros)
--   [Implementando um controlador simples em ROS](#implementando-um-controlador-simples-em-ros)
--   [Implementando uma fila de ações em ROS](#implementando-uma-fila-de-ações-em-ros)
--   [Instalação do ambiente de simulação do turtlebot](#instalação-do-ambiente-de-simulação-do-turtlebot)
-    -   [Problemas comuns com o gazebo](#problemas-comuns-com-o-gazebo)
+- [Objetivos do encontro](#objetivos-do-encontro)
+- [Implementando um subscriber em ROS](#implementando-um-subscriber-em-ros)
+- [Implementando um controlador simples em ROS](#implementando-um-controlador-simples-em-ros)
+- [Implementando uma fila de ações em ROS](#implementando-uma-fila-de-ações-em-ros)
+- [Instalação do ambiente de simulação do turtlebot](#instalação-do-ambiente-de-simulação-do-turtlebot)
+  - [Problemas comuns com o gazebo](#problemas-comuns-com-o-gazebo)
+    - [O gazebo abre a interface gráfica, mas o ambiente de simulação está só com uma tela preta](#o-gazebo-abre-a-interface-gráfica-mas-o-ambiente-de-simulação-está-só-com-uma-tela-preta)
 
 ## Implementando um subscriber em ROS
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/7CkcfUkLMWQ/0.jpg)](https://www.youtube.com/watch?v=7CkcfUkLMWQ)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/7CkcfUkLMWQ/hqdefault.jpg)](https://www.youtube.com/watch?v=7CkcfUkLMWQ)
 
 ## Implementando um controlador simples em ROS
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/pDDB2E7CWUI/0.jpg)](https://www.youtube.com/watch?v=pDDB2E7CWUI)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/pDDB2E7CWUI/hqdefault.jpg)](https://www.youtube.com/watch?v=pDDB2E7CWUI)
 
 ## Implementando uma fila de ações em ROS
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/c9F0yM7PLKs.jpg)](https://www.youtube.com/watch?v=c9F0yM7PLKs)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/c9F0yM7PLKs/hqdefault.jpg)](https://www.youtube.com/watch?v=c9F0yM7PLKs)
 
 ## Instalação do ambiente de simulação do turtlebot
 
